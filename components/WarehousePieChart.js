@@ -122,9 +122,7 @@ export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors 
               onClick={() => setShowBarChart(true)}
               title="View Bar Chart"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3 13h2v8H3v-8zm4-6h2v14H7V7zm4-6h2v20h-2V1zm4 8h2v12h-2V9zm4-4h2v16h-2V5z"/>
-              </svg>
+              <img src="/chart.svg" alt="Chart" width="20" height="20" />
             </button>
             
             <button 
@@ -132,9 +130,7 @@ export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors 
               onClick={() => setShowTable(true)}
               title="View Data Table"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3 3h18v18H3V3zm2 2v4h4V5H5zm6 0v4h4V5h-4zm6 0v4h4V5h-4zM5 11v4h4v-4H5zm6 0v4h4v-4h-4zm6 0v4h4v-4h-4zM5 17v2h4v-2H5zm6 0v2h4v-2h-4zm6 0v2h4v-2h-4z"/>
-              </svg>
+              <img src="/table.svg" alt="Table" width="20" height="20" />
             </button>
             
             <button 
@@ -142,10 +138,7 @@ export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors 
               onClick={() => setShowToast(true)}
               title="View 3D Storage"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.46 9-11V7l-10-5z"/>
-                <path d="M8 10h8v2H8v-2zm0 4h8v2H8v-2z"/>
-              </svg>
+              <img src="/3d.png" alt="3D View" width="20" height="20" />
             </button>
           </div>
         </div>
@@ -249,11 +242,28 @@ export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors 
           position: relative;
         }
 
+        .warehouse-button img {
+          filter: brightness(0) saturate(100%) invert(50%);
+          transition: filter 0.2s ease;
+        }
+
         .warehouse-button:hover {
           background: var(--accent-color);
           color: var(--text-primary);
           transform: scale(1.05);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .warehouse-button:hover img {
+          filter: brightness(0) saturate(100%) invert(20%);
+        }
+
+        [data-theme="dark"] .warehouse-button img {
+          filter: brightness(0) saturate(100%) invert(70%);
+        }
+
+        [data-theme="dark"] .warehouse-button:hover img {
+          filter: brightness(0) saturate(100%) invert(90%);
         }
 
         .chart-button:hover {
