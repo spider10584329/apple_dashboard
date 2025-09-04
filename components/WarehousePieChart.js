@@ -255,30 +255,56 @@ export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors 
         }
 
         .warehouse-button:hover img {
-          filter: brightness(0) saturate(100%) invert(20%);
+          filter: brightness(0) saturate(100%) invert(10%);
         }
 
-        [data-theme="dark"] .warehouse-button img {
-          filter: brightness(0) saturate(100%) invert(70%);
-        }
-
-        [data-theme="dark"] .warehouse-button:hover img {
-          filter: brightness(0) saturate(100%) invert(90%);
-        }
-
+        /* Specific button hover styles */
         .chart-button:hover {
           border-color: #3b82f6;
-          background: rgba(59, 130, 246, 0.1);
+          background: rgba(59, 130, 246, 0.2);
+        }
+
+        .chart-button:hover img {
+          filter: brightness(0) saturate(100%) invert(10%) sepia(100%) saturate(500%) hue-rotate(200deg);
         }
 
         .table-button:hover {
           border-color: #10b981;
-          background: rgba(16, 185, 129, 0.1);
+          background: rgba(16, 185, 129, 0.2);
+        }
+
+        .table-button:hover img {
+          filter: brightness(0) saturate(100%) invert(10%) sepia(100%) saturate(500%) hue-rotate(140deg);
         }
 
         .viewer-button:hover {
           border-color: #8b5cf6;
-          background: rgba(139, 92, 246, 0.1);
+          background: rgba(139, 92, 246, 0.2);
+        }
+
+        .viewer-button:hover img {
+          filter: brightness(0) saturate(100%) invert(10%) sepia(100%) saturate(500%) hue-rotate(260deg);
+        }
+
+        /* Dark theme styles */
+        [data-theme="dark"] .warehouse-button img {
+          filter: brightness(0) saturate(100%) invert(80%);
+        }
+
+        [data-theme="dark"] .warehouse-button:hover img {
+          filter: brightness(0) saturate(100%) invert(100%);
+        }
+
+        [data-theme="dark"] .chart-button:hover img {
+          filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(200%) hue-rotate(200deg);
+        }
+
+        [data-theme="dark"] .table-button:hover img {
+          filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(200%) hue-rotate(140deg);
+        }
+
+        [data-theme="dark"] .viewer-button:hover img {
+          filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(200%) hue-rotate(260deg);
         }
 
         @media (max-width: 768px) {
