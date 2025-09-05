@@ -59,6 +59,11 @@ export default function Dashboard() {
       <Header harvestWeeks={harvestWeeks} weekColors={weekColors} />
       
       <main>
+        <FlowStatsSection 
+          orchards={orchards} 
+          warehouses={warehouses} 
+        />
+        
         <div className="main-content">
           <section className="orchard-storage-section">
             <h2>Orchard Storage Rooms</h2>
@@ -83,11 +88,6 @@ export default function Dashboard() {
             </div>
           </section>
         </div>
-        
-        <FlowStatsSection 
-          orchards={orchards} 
-          warehouses={warehouses} 
-        />
       </main>
     </div>
   )

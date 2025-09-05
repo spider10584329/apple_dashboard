@@ -3,7 +3,6 @@ import * as d3 from 'd3'
 import Tooltip from './Tooltip'
 import WarehouseBarChart from './WarehouseBarChart'
 import WarehouseTable from './WarehouseTable'
-import Toast from './Toast'
 import { useTheme } from '../contexts/ThemeContext'
 
 export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors }) {
@@ -12,7 +11,6 @@ export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors 
   const [tooltip, setTooltip] = useState({ show: false, content: '', x: 0, y: 0 })
   const [showBarChart, setShowBarChart] = useState(false)
   const [showTable, setShowTable] = useState(false)
-  const [showToast, setShowToast] = useState(false)
 
   useEffect(() => {
     if (!warehouse) return
@@ -65,7 +63,7 @@ export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors 
       .on('mouseenter', (event, d) => {
         setTooltip({
           show: true,
-          content: `Week ${d.data.week}<br/>${d.data.count} bins (${d.data.percentage}%)<br/>Total capacity: ${warehouse.totalBins}<br/>Warehouse specialization pattern visible`,
+          content: `Week ${d.data.week}<br/>${d.data.count} bins (${d.data.percentage}%)<br/>Total capacity: ${warehouse.totalBins}`,
           x: event.pageX + 10,
           y: event.pageY - 10
         })
@@ -135,7 +133,7 @@ export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors 
             
             <button 
               className="warehouse-button viewer-button"
-              onClick={() => setShowToast(true)}
+              onClick={() => window.open('https://3d-grid6.vercel.app/', '_blank')}
               title="View 3D Storage"
             >
               <img src="/3d.png" alt="3D View" width="20" height="20" />
@@ -169,13 +167,6 @@ export default function WarehousePieChart({ warehouse, harvestWeeks, weekColors 
           onClose={() => setShowTable(false)}
         />
       )}
-      
-      <Toast
-        message="Press this button to display a 3D view of the refrigerator."
-        isVisible={showToast}
-        onClose={() => setShowToast(false)}
-        duration={4000}
-      />
 
       <style jsx>{`
         .warehouse-pie-chart {
